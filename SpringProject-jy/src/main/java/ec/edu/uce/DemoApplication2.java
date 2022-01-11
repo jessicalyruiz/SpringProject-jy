@@ -29,10 +29,17 @@ public class DemoApplication2 implements CommandLineRunner {
 	//private IPacienteService pacienteService=new PacienteRepoImpl(); //no hacer
 	private static final Logger LOG= (Logger) LoggerFactory.getLogger(DemoApplication2.class);
 	@Autowired
-	private IMatriculaSingletonService obj1;
+	private IMatriculaSingletonService objeto1;
+	@Autowired
+	private IMatriculaSingletonService objeto2;
+	@Autowired
+	private IMatriculaSingletonService objeto3;
 	
-//	@Autowired
-//	private IMatriculaPrototypeService obj2;
+	@Autowired
+	private IMatriculaPrototypeService pro1;
+	
+	@Autowired
+	private IMatriculaPrototypeService pro2;
 	
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication2.class, args);
@@ -40,8 +47,28 @@ public class DemoApplication2 implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		LOG.info("Impresion del valor del objeto");
-		LOG.info(this.obj1.getCodigo());
+		LOG.info("Impresion valor del objeto");
+    	this.objeto1.establecerValor("Edison");
+    	LOG.info(this.objeto1.obtenerCodigo());
+    	
+    	LOG.info("Objeto 2");
+    	LOG.info(this.objeto2.obtenerCodigo());
+    	
+    	LOG.info("Objeto 3");
+    	LOG.info(this.objeto3.obtenerCodigo());
+    	
+    	LOG.info("Objeto 1 Nuevo");
+    	LOG.info(this.objeto3.establecerValor("Pepe"));
+    	
+    	LOG.info("******** Prototype *********");
+    	this.pro1.establecerNombre("Juanito");
+    	LOG.info(this.pro1.obtenerNombre());
+    	
+    	LOG.info("Pro 2");
+    	this.pro2.establecerNombre("Maria");
+    	LOG.info(this.pro2.obtenerNombre());
+    	
+    	LOG.info(this.pro1.obtenerNombre());
 	}
 
 }

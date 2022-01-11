@@ -11,15 +11,27 @@ public class MatriculaSingletonServiceImpl implements IMatriculaSingletonService
 	private String codigo;
 	
 	@Override
-	public String obtenerDato(String valor) {
-		// TODO Auto-generated method stub
-		return null;
+	public String establecerValor(String valor) {
+		this.codigo = valor;
+		return this.codigo;
 	}
 
 	@Override
-	public String getCodigo() {
+	public String obtenerCodigo() {
 		// TODO Auto-generated method stub
 		return this.codigo;
 	}
+//getters y setters 
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+	
+	
+	
+	
 
 }
